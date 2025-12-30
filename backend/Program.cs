@@ -15,6 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Register application services
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ILeaveService, LeaveService>();
 
 // Configure CORS for frontend access
 builder.Services.AddCors(options =>
@@ -22,7 +23,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("http://localhost:3001") // React default port
+            policy.WithOrigins("http://localhost:3000") // React default port
                   .AllowAnyHeader()
                   .AllowAnyMethod()
                   .AllowCredentials();
